@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "viox-masonry": [
+        "dist/viox-masonry"
+      ],
+      "viox-masonry/*": [
+        "dist/viox-masonry/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

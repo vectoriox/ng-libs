@@ -124,6 +124,41 @@
           }
         }
       }
+    },
+    "VioxMasonry": {
+      "projectType": "library",
+      "root": "projects/viox-masonry",
+      "sourceRoot": "projects/viox-masonry/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/viox-masonry/tsconfig.lib.json",
+            "project": "projects/viox-masonry/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/viox-masonry/src/test.ts",
+            "tsConfig": "projects/viox-masonry/tsconfig.spec.json",
+            "karmaConfig": "projects/viox-masonry/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/viox-masonry/tsconfig.lib.json",
+              "projects/viox-masonry/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "vectoriox"
 }
