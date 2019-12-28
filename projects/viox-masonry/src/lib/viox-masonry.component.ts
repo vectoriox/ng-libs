@@ -19,34 +19,46 @@ export class VioxMasonryComponent implements OnInit {
   @Input() updateLayout: Boolean = false;
 
   @Output() layoutComplete: EventEmitter<any[]> = new EventEmitter<any[]>();
+  
+  public imagesLoaded;
 
   constructor(private _element: ElementRef) { }
 
   ngOnInit() {
     console.log(this._element);
     console.log(this.options);
+    this.imagesLoaded = require('imagesloaded');
     let masonryConstructor = require('masonry-layout');
     this.options.initLayout = false;
     this._msnry = new masonryConstructor('.grid', this.options);
-    setTimeout(()=>{
-      this._msnry.layout();
-    },100)
-    
+    this.layout();
     this._msnry.on('layoutComplete', (items: any) => {
       this.layoutComplete.emit(items);
     });
 
   }
 
-  @HostListener('window:scroll', ["$event"])
-  handleScroll($event){
-    var elemets = this._element.nativeElement.children;
-    elemets.forEach(element => {
-      if(window.scrollY + window.innerHeight >= element.offsetTop){
-        elemets.className += " visible";
-      }
+  ngOnChanges(changes: any) {
+    console.log(changes);
+  }
+
+
+  public add(element: HTMLElement){;
+    this.imagesLoaded(element, (instance: any) => {   
+      this._msnry.appended(element);
+    }); 
+  }
+
+  public remove(element: HTMLElement) {
+    this._msnry.remove(element);
+  }
+
+  public layout() {
+    setTimeout(() => {
+      this._msnry.layout();
     });
   }
+
 }
 
 export interface IVioxMasonryOptions {

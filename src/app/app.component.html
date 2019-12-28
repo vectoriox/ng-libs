@@ -1,43 +1,7 @@
 <div viox-masonry class="grid" (layoutComplete)="layoutComplete($event)" [options]="options">
   <div class="grid-sizer"></div>
   <div class="gutter-sizer"></div>
-  <div class="grid-item">
-    <div></div>
-  </div>
-  <div class="grid-item">
-    <img src="./assets/images/amyWinehouse.jpg">
-  </div>
-  <div class="grid-item">
-    <img src="./assets/images/elvisPresley.jpg">
-  </div>
-  <div class="grid-item">
-    <img src="./assets/images/FreddieMercury.jpg">
-  </div>
-  <div class="grid-item">
-    <img src="./assets/images/jamesDean.jpg">
-  </div>
-  <div class="grid-item">
-    <img src="./assets/images/shirleyBessy.jpg">
-  </div>
-  <div class="grid-item">
-    <img src="./assets/images/del-rey.jpg">
-  </div>
-  <div class="grid-item">
-    <img src="./assets/images/hedriks.jpg">
-  </div>
-  <div class="grid-item">
-    <img src="./assets/images/madonna.jpeg">
-  </div>
-  <div class="grid-item">
-    <img src="./assets/images/Marilyn_Monroe.jpg">
-  </div>
-  <div class="grid-item">
-    <img src="./assets/images/jenis.jpg">
-  </div>
-  <div class="grid-item">
-    <img src="./assets/images/kurt-cobain.jpg">
-  </div>
-  <div class="grid-item">
-    <img src="./assets/images/clint.jpg">
+  <div vioxMasonryItem class="grid-item" *ngFor="let item of collection">
+    <img src="{{item.img}}" />
   </div>
 </div>

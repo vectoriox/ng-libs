@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { VioxMasonryComponent } from './viox-masonry.component';
+import { VioxMasonryItemDirective } from './viox-masonry-item.directive';
 
 
 
 @NgModule({
-  declarations: [VioxMasonryComponent],
+  declarations: [VioxMasonryComponent, VioxMasonryItemDirective],
   imports: [
   ],
-  exports: [VioxMasonryComponent]
+  exports: [VioxMasonryComponent, VioxMasonryItemDirective]
 })
 export class VioxMasonryModule { }
