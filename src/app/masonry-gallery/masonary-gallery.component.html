@@ -1,0 +1,8 @@
+<h2>Viox Masonry</h2>
+<div viox-masonry class="grid" (layoutComplete)="layoutComplete($event)" [options]="options">
+  <div class="grid-sizer"></div>
+  <div class="gutter-sizer"></div>
+  <div vioxMasonryItem class="grid-item" *ngFor="let item of collection">
+    <img src="{{item.img}}" />
+  </div>
+</div>

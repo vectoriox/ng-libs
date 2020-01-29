@@ -1,0 +1,25 @@
+@import "./base/typography";
+
+h2{
+    padding: 20px 40px;
+    @include font-paragraph-1(30px,#fff)
+}
+.grid{
+    max-width: 800px;
+    margin: 0 auto;
+   }
+   .gutter-sizer{
+       width: 1%;
+   }
+   .grid-sizer,
+   .grid-item {
+     width: 24%;
+   }
+   .grid-item{
+            margin-bottom: 10px;
+       img{
+           background: #D8D5D2;
+           width: 100%;
+           border-radius: 5px;
+       }
+   }

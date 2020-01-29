@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Rajdhani|Sacramento|Roboto&display=swap');
+
+@mixin font-menu($size:14px,$color:#fff){
+    font-family: 'Roboto', cursive;
+    color:$color;
+    font-size: $size;
+}
+
+@mixin font-paragraph-1($size:14px , $color:#fff){
+    font-family: 'Rajdhani', sans-serif;
+    color:$color;
+    font-size: $size;
+}
+
+@mixin font-paragraph-2($size:14px , $color:#fff){
+    font-family: 'Sacramento', cursive;
+    color:$color;
+    font-size: $size;
+}

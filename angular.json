@@ -25,11 +25,22 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              }
             ],
             "styles": [
+              "src/theme.less",
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles/"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -159,6 +170,77 @@
           }
         }
       }
-    }},
+    },
+    "vioxUiDirevetives": {
+      "projectType": "library",
+      "root": "projects/viox-ui-direvetives",
+      "sourceRoot": "projects/viox-ui-direvetives/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/viox-ui-direvetives/tsconfig.lib.json",
+            "project": "projects/viox-ui-direvetives/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/viox-ui-direvetives/src/test.ts",
+            "tsConfig": "projects/viox-ui-direvetives/tsconfig.spec.json",
+            "karmaConfig": "projects/viox-ui-direvetives/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/viox-ui-direvetives/tsconfig.lib.json",
+              "projects/viox-ui-direvetives/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "vioxAos": {
+      "projectType": "library",
+      "root": "projects/viox-aos",
+      "sourceRoot": "projects/viox-aos/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/viox-aos/tsconfig.lib.json",
+            "project": "projects/viox-aos/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/viox-aos/src/test.ts",
+            "tsConfig": "projects/viox-aos/tsconfig.spec.json",
+            "karmaConfig": "projects/viox-aos/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/viox-aos/tsconfig.lib.json",
+              "projects/viox-aos/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
   "defaultProject": "vectoriox"
 }

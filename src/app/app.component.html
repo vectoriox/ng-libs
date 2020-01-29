@@ -1,7 +1,18 @@
-<div viox-masonry class="grid" (layoutComplete)="layoutComplete($event)" [options]="options">
-  <div class="grid-sizer"></div>
-  <div class="gutter-sizer"></div>
-  <div vioxMasonryItem class="grid-item" *ngFor="let item of collection">
-    <img src="{{item.img}}" />
+<div>
+  <div id="viox-main">
+    <ul>
+      <li><i nz-icon nzType="menu" nzTheme="outline" (click)="toggleMenu($event)"></i></li>
+      <li><i nz-icon nzType="picture" nzTheme="outline"></i></li>
+      <li><i nz-icon nzType="home" nzTheme="outline"></i></li>
+    </ul>
+  </div>
+  <nav id="viox-nav" [ngClass]="{'open': isOpen}" >
+    <ul>
+      <li><a routerLink="/masonryGallery">Masonary Gallery</a></li>
+      <li><a routerLink="/aos">AOS Animtation</a></li>
+    </ul>
+  </nav>
+  <div id="viox-body" [ngClass]="{'open': isOpen}">
+    <router-outlet></router-outlet>
   </div>
 </div>

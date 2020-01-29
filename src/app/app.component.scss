@@ -1,18 +1,64 @@
-.grid{
-    max-width: 1024px;
-    margin: 0 auto;
-   }
-   .gutter-sizer{
-       width: 1%;
-   }
-   .grid-sizer,
-   .grid-item {
-     width: 32.3%;
-   }
-   .grid-item{
-            margin-bottom: 10px;
-       img{
-           background: #D8D5D2;
-           width: 100%;
-       }
-   }
+@import "./base/typography";
+
+#viox-main{
+    position: fixed;
+    width: 60px;
+    top: 0px;
+    bottom: 0;
+    z-index: 3;
+    background-color: #333333;
+    ul{
+        li{
+            padding: 20px 10px;
+            text-align: center;
+            i{
+                color: #A9ADB2;
+                font-size: 20px;
+                cursor: pointer;
+                &:hover{
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+#viox-nav{
+    position: fixed;
+    top: 0;
+    bottom:0;
+    left: -250px;
+    z-index: 1;
+    width: 250px;
+    background-color: #252525;
+    -webkit-box-shadow: 5px 1px 9px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 1px 9px -3px rgba(0,0,0,0.75);
+    box-shadow: 5px 1px 9px -3px rgba(0,0,0,0.75);
+    transition: all 1s;
+    &.open{
+        left: 0;
+        transition: all 0.8s;
+
+    }
+    ul{
+        margin-top: 5px;
+        margin-left: 80px;
+        list-style: none;
+        li{
+            padding: 10px 0;
+            a{  
+                @include font-menu(14px, #fff);
+                text-decoration: none;
+                color: #fff;
+            }
+        }
+    }
+}
+#viox-body{
+    margin-left: 60px;
+    transition: all 1s;
+    &.open{
+        margin-left: 250px;
+        transition: all 0.7s;
+    }
+}

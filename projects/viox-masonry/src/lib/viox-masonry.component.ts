@@ -21,19 +21,22 @@ export class VioxMasonryComponent implements OnInit {
   @Output() layoutComplete: EventEmitter<any[]> = new EventEmitter<any[]>();
   
   public imagesLoaded;
+  public elementsQueue= [];
+  private isAppendAllowed:boolean = true;
 
   constructor(private _element: ElementRef) { }
 
   ngOnInit() {
-    console.log(this._element);
-    console.log(this.options);
     this.imagesLoaded = require('imagesloaded');
     let masonryConstructor = require('masonry-layout');
     this.options.initLayout = false;
     this._msnry = new masonryConstructor('.grid', this.options);
     this.layout();
     this._msnry.on('layoutComplete', (items: any) => {
-      this.layoutComplete.emit(items);
+      this.isAppendAllowed = true;
+      if(this.elementsQueue.length > 0){
+        this.add(this.elementsQueue.pop());
+      }
     });
 
   }
@@ -43,10 +46,18 @@ export class VioxMasonryComponent implements OnInit {
   }
 
 
-  public add(element: HTMLElement){;
-    this.imagesLoaded(element, (instance: any) => {   
-      this._msnry.appended(element);
-    }); 
+  public add(element: HTMLElement){
+    if(!this.isAppendAllowed){
+      this.elementsQueue.push(element);
+      return;
+    }
+    this.isAppendAllowed = false;
+    setTimeout(()=>{
+      this.imagesLoaded(element, (instance: any) => { 
+          this._msnry.appended(element);
+      }); 
+    },200)
+
   }
 
   public remove(element: HTMLElement) {

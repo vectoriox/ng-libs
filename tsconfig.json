@@ -24,6 +24,18 @@
       ],
       "viox-masonry/*": [
         "dist/viox-masonry/*"
+      ],
+      "viox-ui-direvetives": [
+        "dist/viox-ui-direvetives"
+      ],
+      "viox-ui-direvetives/*": [
+        "dist/viox-ui-direvetives/*"
+      ],
+      "viox-aos": [
+        "dist/viox-aos"
+      ],
+      "viox-aos/*": [
+        "dist/viox-aos/*"
       ]
     }
   },
